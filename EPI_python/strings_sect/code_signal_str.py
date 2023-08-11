@@ -16,20 +16,20 @@
 # use max function to get the key with the max value in the dictionary
 # .get() used to get the value of each key
 
-def solution(string):
+# def solution(string):
     
-    maxFreq = {}
+#     maxFreq = {}
     
-    for char in string:
-        if char in maxFreq:
-            maxFreq[char] += 1
-        else:
-            maxFreq[char] = 1
+#     for char in string:
+#         if char in maxFreq:
+#             maxFreq[char] += 1
+#         else:
+#             maxFreq[char] = 1
             
-    maxChar = max(maxFreq, key = maxFreq.get)
+#     maxChar = max(maxFreq, key = maxFreq.get)
     
     
-    return maxChar
+#     return maxChar
         
 
 
@@ -51,22 +51,30 @@ output: FoRm AtIoN
 
 [output] string
 """
-def solution(string):
+# def solution(string):
 
-    result = []
-    
-    for i in range(len(string)):
+#     result = []
+#     pointer = 0
+#     for i in range(len(string)):
+
+#         if string[i] == " ":
+#             result.append(string[i])
+#             continue
         
-        
-        
-        if i % 2 == 0:
-            result.append(string[i].upper())
-        else:
-            result.append(string[i].lower())
+#         if pointer % 2 == 0:
+#             result.append(string[i].upper())
+#             pointer += 1
+#         else:
+#             result.append(string[i].lower())
+#             pointer += 1
             
     
-    return ''.join(result)
+#     return ''.join(result)
     
+
+# print(solution("mohsin shaik"))
+# print(solution("mohsinshaik"))
+# print(solution("MOHSIN SHAIK"))
     
 
 
@@ -94,32 +102,45 @@ Output: "Happy Look! Birthday I am flying!"
 # def solutionP(string1, string2):
 
 #     newArr = []
-#     arr1 = [string1.split()]
-#     arr2 = [string2.split()]
+#     arr1 = string1.split()
+#     arr2 = string2.split()
 
-    
-    
-    
-#     pointer1 = 0
-#     pointer2 = 0
-    
-#     while pointer1 < len(arr1) and pointer2 < len(arr2):
-#         newArr.append(arr1[pointer1])
-#         pointer1 += 1
-#         newArr.append(arr1[pointer2])
-#         pointer2 += 1
-    
-#     if pointer1 < len(arr1):
-#         newArr.append(arr1[pointer1:])
-        
-#     if pointer2 < len(arr2):
-#         newArr.append(arr2[pointer2:])
-        
-    
-#     newStr = ' '.join(newArr)
-#     return newStr
+#     print(arr1 )
+#     print(arr2)
 
-# print(solutionP("I Like Pie","I Like Candy"))
+#     j = 0
+    
+#     for i in range(len(arr1)):
+
+#         if i < len(arr1) and j == len(arr2):
+#             newArr += arr1[i:]
+#             return ' '.join(newArr)
+
+#         else:
+
+#             newArr.append(arr1[i])
+#             newArr.append(arr2[j])
+#             j += 1
+        
+#     if j < len(arr2):
+#         newArr += arr2[j:]
+        
+    
+#     return ' '.join(newArr)
+
+# print("-----------------")
+# print(solutionP("I Like Pie Cat" , "I Like Candy"))
+# print("-----------------")
+# print(solutionP("I Like Pie " , "I Like Candy"))
+# print("-----------------")
+# print(solutionP("I Like " , "I Like Candy"))
+# print("-----------------")
+
+# print(solutionP("I Like Pie Cat" , ""))
+# print("-----------------")
+# print(solutionP("" , "I Like Candy"))
+# print("-----------------")
+
 
 """
 ----------------------------------------------------------------
@@ -136,18 +157,30 @@ Output: "Hello World!"
 
 [output] string
 """
-def solutionS(string):
+# def solutionS(string):
 
-    # string to arr
-    arr = [string.split()]
-    # arr back to string
-    newStr = ' '.join(arr)
-    res = newStr.strip()
     
-    return res
+#     string = string.strip()
+    
+#     newStr = ""
 
-print(solutionS("    Hello     World!            "))
+    
 
+#     for i in range(0 , len(string)):
+
+#         if string[i] != " ":
+#             newStr += string[i]
+        
+#         else:
+#             if string[i] == " " and string[i+1] != " ":
+#                 newStr += string[i]
+        
+
+#     return newStr
+
+# print(solutionS("    Hello     World!            "))
+# print(solutionS("    Hello  Poop   World!            "))
+# print(solutionS("    Hello     World!"))
 
 
 """
@@ -167,8 +200,35 @@ Output: "flying"
 [output] string
 
 """
-#def solution(string):
+def solution(string):
+    count = 0
+    start = 0
+    maxStarting = 0
+    flag = False
+    i = 0
 
+    while i < len(string):
+
+        
+        while flag is False:
+            if string[i].isalnum():
+                count += 1
+                i += 1
+            elif string[i].isalnum() is False:
+                i += 1
+            elif string[i].isspace():
+                
+            
+
+        
+        
+                if string[i].isalnum() is False and string[i].isspace() is False:
+                    continue
+
+
+
+
+    
 
 
 """
@@ -189,4 +249,19 @@ Output: "I am hpy"
 
 
 """
-#def solution(string):
+# def solution7(string):
+    
+#     answer = ""
+
+#     for i in range(0, len(string)):
+
+#         if string[i] not in string[:i] or string[i] == " ":
+#             answer += string[i]
+
+#     return answer
+
+
+# print(solution7("I am happy"))
+# print(solution7("I am ha pp y"))
+# print(solution7("bad bad dab topd"))
+# print(solution7("I am happy"))
