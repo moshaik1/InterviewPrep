@@ -114,4 +114,44 @@ Removing whitespace
 
     .lstrip( )
 
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+ IMPORTANT TOPICS:
+
+ - GET COUNT OR LENGTH OF STRING
+        -  (built-in)  .count( " " ) -> returns number of occurances
+        -  (built-in) len( " " ) -> returns length of string
+
+ - SPLIT THE STRING BY A PARTICULAR SEPARATOR
+        -  (built-in) .split( -seperator- ) -> returns list of strings
+
+ - REMOVE A CHARACTER FROM A STRING
+        - (built-in) .replace( , )
+ - REMOVE A SUBSTRING BY RANGE FROM A STRING
+        - slicing string up and concatenating it back together
+ - APPEND, INSERT OR PREPEND A SUBSTRING
+        - (built-in) "".join( , )
+        - concatenation
+
+ - UNDERSTAND THE RUNTIME OF COPYING A STRING IN YOUR LANGUAGE
+
+
+ IMPORTANT TIPS:
+
+    - TURNING STRING INTO AN ARRAY AUTOMATICALLY USES O(N) SPACE AND TIME, KNOW THAT 
+    - BETTER TO TREAT IT LIKE AN ARRAY AND USE STRING-SPECIFIC SYNTAX
+
+    - USE INDICES INSTEAD OF CREATING TONS OF SUBARRAYS
+
+"""
+
+"""
+* Swapping characters in a string. Turn “ab” into “ba” by swapping
+* Inserting characters into a string. Turn “ab” into “acb” by inserting a c
+* Remove characters from a string. Turn “abcd” into “ad” by removing “bc”
+* Sort a string. It’s ok to use a helper function. Turn “cba” into “abc”
+* Get a substring. Get the first half of the string “abcd” (return “ab”)
 """
