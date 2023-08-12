@@ -100,48 +100,35 @@ Output: "Happy Look! Birthday I am flying!"
 
 """
 
-# def solutionP(string1, string2):
+# def solutionP(string1:str, string2:str)-> str:
 
 #     newArr = []
 #     arr1 = string1.split()
 #     arr2 = string2.split()
 
-#     print(arr1 )
-#     print(arr2)
-
-#     j = 0
     
-#     for i in range(len(arr1)):
-
-#         if i < len(arr1) and j == len(arr2):
-#             newArr += arr1[i:]
-#             return ' '.join(newArr)
-
-#         else:
-
-#             newArr.append(arr1[i])
-#             newArr.append(arr2[j])
-#             j += 1
+    
+    
+#     pointer1 = 0
+#     pointer2 = 0
+    
+#     while pointer1 < len(arr1) and pointer2 < len(arr2):
+#         newArr.append(arr1[pointer1])
+#         pointer1 += 1
+#         newArr.append(arr1[pointer2])
+#         pointer2 += 1
+    
+#     if pointer1 < len(arr1):
+#         newArr.append(arr1[pointer1:])
         
-#     if j < len(arr2):
-#         newArr += arr2[j:]
+#     if pointer2 < len(arr2):
+#         newArr.append(arr2[pointer2:])
         
     
-#     return ' '.join(newArr)
+#     newStr = ' '.join(newArr)
+#     return newStr
 
-# print("-----------------")
-# print(solutionP("I Like Pie Cat" , "I Like Candy"))
-# print("-----------------")
-# print(solutionP("I Like Pie " , "I Like Candy"))
-# print("-----------------")
-# print(solutionP("I Like " , "I Like Candy"))
-# print("-----------------")
-
-# print(solutionP("I Like Pie Cat" , ""))
-# print("-----------------")
-# print(solutionP("" , "I Like Candy"))
-# print("-----------------")
-
+# print(solutionP("I Like Pie","I Like Candy"))
 
 """
 ----------------------------------------------------------------
@@ -159,8 +146,17 @@ Output: "Hello World!"
 [output] string
 """
 # def solutionS(string):
+# def solutionS(string):
 
+#     # string to arr
+#     arr = [string.split()]
+#     # arr back to string
+#     newStr = ' '.join(arr)
+#     res = newStr.strip()
     
+#     return res
+
+# print(solutionS("    Hello     World!            "))
 #     string = string.strip()
     
 #     newStr = ""
@@ -244,6 +240,27 @@ def solutionm(string):
 print(solutionm("Look! I Am Flying"))
 
     
+def solutionT(string):
+    front = 0
+    end = 0
+    largest = 0
+    largestPointer = 0
+
+    while end < len(string):
+        if not string[end].isspace():
+            end += 1
+        else:
+            largest = max(largest , len(string[front:end]))
+            end += 1
+            front = end
+    largest = max(largest, len(string[front:end]))
+
+    print(largest)
+    
+
+print(solutionT("Look! I am flying"))
+
+
 
 
 """
