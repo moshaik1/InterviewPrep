@@ -31,6 +31,7 @@
     
 #     return maxChar
         
+# print(solution("apple"))
 
 
 
@@ -200,33 +201,47 @@ Output: "flying"
 [output] string
 
 """
-def solution(string):
-    count = 0
-    start = 0
+
+#  maxCount + maxStart keeps track of max
+#   i + j are pointer1 and pointer2
+#   compare count to maxCount
+#
+#
+def solutionm(string):
+    
+
+    maxCount = 0
     maxStarting = 0
-    flag = False
+    
     i = 0
+    j = 0
+    count = 0
 
     while i < len(string):
+        count = 0
+        while string[j] != " ":
 
-        
-        while flag is False:
-            if string[i].isalnum():
+            if string[j+1] == " " or string[j+1] == len(string)-1:
                 count += 1
-                i += 1
-            elif string[i].isalnum() is False:
-                i += 1
-            elif string[i].isspace():
-                
-            
+                if count > maxCount:
+                    maxCount = count
+                    maxStarting = i 
+                    i = j+1
+                    j += 1
+                    break
+                else:
+                    i = j+1
+                    j += 1
+                    break
+            else:
+                if string[j].isalnum() is True:
+                    count += 1
+                j += 1
 
-        
-        
-                if string[i].isalnum() is False and string[i].isspace() is False:
-                    continue
+    return string[maxStarting:maxStarting + maxCount]
 
 
-
+print(solutionm("Look! I Am Flying"))
 
     
 

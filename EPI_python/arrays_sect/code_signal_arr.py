@@ -46,12 +46,33 @@ target value to be checked
 
 [output] boolean
 
---------WRONG-----------------------------------------------------------
+--------WRONG---CHECKED--------------------------------------------------------
 """
 
 # def solution(array, target):
+
+#     tail = len(array) - 1
+#     head = 0
+
+#     while head <= tail:
+#         midpoint = (tail + head) // 2
+
+        
+
+#         if array[midpoint] == target:
+#             return midpoint
+#         elif array[midpoint] < target:
+#             head = midpoint+1
+#         else:
+#             tail = midpoint-1
+#     return -1
+
+# print(solution([],12))
+# print(solution([10,12],12))
+# print(solution([10,13,15,16,20],12))
+# print(solution([10,12,13,16],13))
+# print(solution([10,13,15,16,20],16))
     
-#     1 3 5 9 10 14 25 100
 
     
 """
