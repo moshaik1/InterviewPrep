@@ -126,35 +126,88 @@ sorted array
 sorted list
 --------WRONG-----------------------------------------------------------
 """
-# def solution(array1, array2, array3):
+def solution(array1, array2, array3):
     
-#     answer = []
-#     totLength = len(array1) + len(array2) + len(array3)
+    answer = []
+   
+    pointer1 = 0
+    pointer2 = 0
+    pointer3 = 0
     
-#     pointer1 = 0
-#     pointer2 = 0
-#     pointer3 = 0
-#     respointer = 0
-        
+    # merging all 3 arrays as much as possible
+
+    while pointer1 < len(array1) and pointer2 < len(array2) and pointer3 < len(array3):
+        minVal = min(array1[pointer1],array2[pointer2],array3[pointer3])
+
+        if array1[pointer1] == minVal:
+            answer.append(array1[pointer1])
+            pointer1 += 1
+        elif array2[pointer2] == minVal:
+            answer.append(array2[pointer2])
+            pointer2 += 1
+        else:
+            answer.append(array3[pointer3])
+            pointer3 += 1
     
-#     while respointer < totLength:
-        
-#         if array1[pointer1] <= array2[pointer2] and array1[pointer1] <= array3[pointer3]:
-#             answer.append(array1[pointer1])
-#             pointer1 += 1
-#             respointer +=1
-        
-#         elif array2[pointer2] <= array1[pointer1] and array2[pointer2] <= array3[pointer3]:
-#             answer.append(array2[pointer2])
-#             pointer2 += 1
-#             respointer +=1
-            
-#         else:
-#             answer.append(array3[pointer3])
-#             pointer3 += 1
-#             respointer +=1
-    
-#     return answer
+
+    # merging array1 and array2, exhausted array3
+
+    while pointer1 < len(array1) and pointer2 < len(array2):
+
+        if array1[pointer1] < array2[pointer2]:
+            answer.append(array1[pointer1])
+            pointer1 += 1
+        else:
+            answer.append(array2[pointer2])
+            pointer2 += 1
+
+    # merging array1 and array3, exhausted array2
+
+    while pointer1 < len(array1) and pointer3 < len(array3):
+
+        if array1[pointer1] < array3[pointer3]:
+            answer.append(array1[pointer1])
+            pointer1 += 1
+        else:
+            answer.append(array3[pointer3])
+            pointer3 += 1
+
+    # merging array2 and array3, exhaused array1
+
+    while pointer2 < len(array2) and pointer3 < len(array3):
+
+        if array2[pointer2] < array3[pointer3]:
+            answer.append(array2[pointer2])
+            pointer2 += 1
+        else:
+            answer.append(array3[pointer3])
+            pointer3 += 1
+
+
+    #merging array1, exhaused array2 and array3
+
+    while pointer1 < len(array1):
+        answer.append(array1[pointer1])
+        pointer1 += 1
+
+    #merging array2, exhaused array1 and array3
+
+    while pointer2 < len(array2):
+        answer.append(array2[pointer2])
+        pointer2 += 1
+
+
+    #merging array3, exhaused array1 and array2
+
+    while pointer3 < len(array3):
+        answer.append(array3[pointer3])
+        pointer3 += 1
+
+    return answer
+
+
+print(solution([10 , 14 , 21 , 30],[3 , 17 , 20],[1 , 2 , 25 , 26 , 31])) 
+
 
 """
 5Q. Given two array of integers of equal length, zip them up by alternating between the two arrays.

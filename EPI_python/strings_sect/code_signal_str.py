@@ -240,25 +240,6 @@ def solutionm(string):
 print(solutionm("Look! I Am Flying"))
 
     
-def solutionT(string):
-    front = 0
-    end = 0
-    largest = 0
-    largestPointer = 0
-
-    while end < len(string):
-        if not string[end].isspace():
-            end += 1
-        else:
-            largest = max(largest , len(string[front:end]))
-            end += 1
-            front = end
-    largest = max(largest, len(string[front:end]))
-
-    print(largest)
-    
-
-print(solutionT("Look! I am flying"))
 
 
 
