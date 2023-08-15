@@ -124,89 +124,89 @@ sorted array
 [output] array.integer
 
 sorted list
---------WRONG-----------------------------------------------------------
+--------WRONG---CHECKED--------------------------------------------------------
 """
-def solution(array1, array2, array3):
+# def solution(array1, array2, array3):
     
-    answer = []
+#     answer = []
    
-    pointer1 = 0
-    pointer2 = 0
-    pointer3 = 0
+#     pointer1 = 0
+#     pointer2 = 0
+#     pointer3 = 0
     
-    # merging all 3 arrays as much as possible
+#     # merging all 3 arrays as much as possible
 
-    while pointer1 < len(array1) and pointer2 < len(array2) and pointer3 < len(array3):
-        minVal = min(array1[pointer1],array2[pointer2],array3[pointer3])
+#     while pointer1 < len(array1) and pointer2 < len(array2) and pointer3 < len(array3):
+#         minVal = min(array1[pointer1],array2[pointer2],array3[pointer3])
 
-        if array1[pointer1] == minVal:
-            answer.append(array1[pointer1])
-            pointer1 += 1
-        elif array2[pointer2] == minVal:
-            answer.append(array2[pointer2])
-            pointer2 += 1
-        else:
-            answer.append(array3[pointer3])
-            pointer3 += 1
+#         if array1[pointer1] == minVal:
+#             answer.append(array1[pointer1])
+#             pointer1 += 1
+#         elif array2[pointer2] == minVal:
+#             answer.append(array2[pointer2])
+#             pointer2 += 1
+#         else:
+#             answer.append(array3[pointer3])
+#             pointer3 += 1
     
 
-    # merging array1 and array2, exhausted array3
+#     # merging array1 and array2, exhausted array3
 
-    while pointer1 < len(array1) and pointer2 < len(array2):
+#     while pointer1 < len(array1) and pointer2 < len(array2):
 
-        if array1[pointer1] < array2[pointer2]:
-            answer.append(array1[pointer1])
-            pointer1 += 1
-        else:
-            answer.append(array2[pointer2])
-            pointer2 += 1
+#         if array1[pointer1] < array2[pointer2]:
+#             answer.append(array1[pointer1])
+#             pointer1 += 1
+#         else:
+#             answer.append(array2[pointer2])
+#             pointer2 += 1
 
-    # merging array1 and array3, exhausted array2
+#     # merging array1 and array3, exhausted array2
 
-    while pointer1 < len(array1) and pointer3 < len(array3):
+#     while pointer1 < len(array1) and pointer3 < len(array3):
 
-        if array1[pointer1] < array3[pointer3]:
-            answer.append(array1[pointer1])
-            pointer1 += 1
-        else:
-            answer.append(array3[pointer3])
-            pointer3 += 1
+#         if array1[pointer1] < array3[pointer3]:
+#             answer.append(array1[pointer1])
+#             pointer1 += 1
+#         else:
+#             answer.append(array3[pointer3])
+#             pointer3 += 1
 
-    # merging array2 and array3, exhaused array1
+#     # merging array2 and array3, exhaused array1
 
-    while pointer2 < len(array2) and pointer3 < len(array3):
+#     while pointer2 < len(array2) and pointer3 < len(array3):
 
-        if array2[pointer2] < array3[pointer3]:
-            answer.append(array2[pointer2])
-            pointer2 += 1
-        else:
-            answer.append(array3[pointer3])
-            pointer3 += 1
-
-
-    #merging array1, exhaused array2 and array3
-
-    while pointer1 < len(array1):
-        answer.append(array1[pointer1])
-        pointer1 += 1
-
-    #merging array2, exhaused array1 and array3
-
-    while pointer2 < len(array2):
-        answer.append(array2[pointer2])
-        pointer2 += 1
+#         if array2[pointer2] < array3[pointer3]:
+#             answer.append(array2[pointer2])
+#             pointer2 += 1
+#         else:
+#             answer.append(array3[pointer3])
+#             pointer3 += 1
 
 
-    #merging array3, exhaused array1 and array2
+#     #merging array1, exhaused array2 and array3
 
-    while pointer3 < len(array3):
-        answer.append(array3[pointer3])
-        pointer3 += 1
+#     while pointer1 < len(array1):
+#         answer.append(array1[pointer1])
+#         pointer1 += 1
 
-    return answer
+#     #merging array2, exhaused array1 and array3
+
+#     while pointer2 < len(array2):
+#         answer.append(array2[pointer2])
+#         pointer2 += 1
 
 
-print(solution([10 , 14 , 21 , 30],[3 , 17 , 20],[1 , 2 , 25 , 26 , 31])) 
+#     #merging array3, exhaused array1 and array2
+
+#     while pointer3 < len(array3):
+#         answer.append(array3[pointer3])
+#         pointer3 += 1
+
+#     return answer
+
+
+# print(solution([10 , 14 , 21 , 30],[3 , 17 , 20],[1 , 2 , 25 , 26 , 31])) 
 
 
 """
@@ -253,19 +253,52 @@ Ex. [1, 3, 5, 7], target: 6 returns 5
 
 [output] integer
 
---------WRONG-----------------------------------------------------------
+E:
+-can array be empty?
+-if the element is equal to target?
+[] t=10
+[1] t=10
+[1,3,5,6,10] t = 4
+[1,3,5,6,10] t = 5
+[1,3,5,6,10,11] t = 9
+
+- if no elements, return -1
+- if 1 element, return the 1 element
+- abs value
+
+--------WRONG----CHECKED-------------------------------------------------------
 """
 # def solution(array1, target):
 
-#     if is not target or is not array1:
+#     if not target or not array1:
 #         return -1
         
+#     elif len(array1) == 1:
+#         return array1[0]
+
 #     else:
-#         answer = 0
-#         for i in range(len(array1)-1):
+#         answer = float("inf")
+#         for i in range(0, len(array1)-1):
             
-#             if target - array1[answer] < target - 
+#             if abs(target - array1[i]) < abs(target - array1[i+1]):
+#                 answer = array1[i]
+
+#             elif abs(target - array1[i]) == abs(target - array1[i+1]):
+#                 return array1[i]
+
+#             if abs(target-array1[i+1]) > abs(target - answer):
+#                 return answer
             
+        
+#     return answer
+
+# print(solution([],10))
+# print(solution([1],10))
+# print(solution([1,3,5,6,10],4))
+# print(solution([1,3,5,7,10],6))
+# print(solution([1,3,5,6,10,11],9))
+
+
           
             
             

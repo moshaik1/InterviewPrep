@@ -76,3 +76,5 @@ print(selectionSort([ 4 , 6 , 8 , 3 , 1 , 9 , 5 , 0 ]))
 print(selectionSort([ 4 ]))
 print(selectionSort([ ]))
 print(selectionSort([ 4 , 6 , 8 , 3 , 1 , 9 , 5 , 1]))
+
+print(selectionSort([ 4 , 6 , 8 , 3 , -1 , -9 , -5 , 1]))
