@@ -82,9 +82,13 @@ class ListNode:
 def findMax(node: ListNode) -> int:
     
     
+    if node is None:
+        return 0
+    
     if node.next is None:
         return node.value
     
+
     return max(node.value, findMax(node.next))
 
 LL1 = ListNode(1, ListNode(4, ListNode(5, ListNode(1))))
