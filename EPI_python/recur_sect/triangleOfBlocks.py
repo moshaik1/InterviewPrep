@@ -66,3 +66,12 @@ print(triangle(3) == 6)
 print(triangle(2) == 3)
 print(triangle(1) == 1)
 print(triangle(0) == 0)
+
+
+
+
+
+
+
+
+

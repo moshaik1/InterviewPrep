@@ -1,6 +1,8 @@
 
 """
-Given a linked list of integers and a number, k, add k to every kth node starting from the end. For example, if the list is [1 -> 2 -> 3 -> 4] and k is 3, then the result is [1 -> 5 -> 3 -> 4]. The 2 was the third value from the end, we added three to get 5. No other nodes are modified.
+Given a linked list of integers and a number, k, add k to every kth node starting from the end. 
+For example, if the list is [1 -> 2 -> 3 -> 4] and k is 3, then the result is [1 -> 5 -> 3 -> 4]. 
+The 2 was the third value from the end, we added three to get 5. No other nodes are modified.
 
 For a longer example, consider the list:
 
@@ -21,22 +23,30 @@ If k=3, two nodes change:
 """
 
 # Singly-linked lists are already defined with this interface:
-class ListNode(object):
-  def __init__(self, x, next=None):
-    self.value = x
-    self.next = next
+# class ListNode(object):
+#   def __init__(self, x, next=None):
+#     self.value = x
+#     self.next = next
 
-def solution(head:ListNode):
-    curr = head
+# def solution(head:ListNode , k):    
 
-    if curr is None:
-       return 0
+#     def helper(head):
+#        if head is None:
+#           return 0
+#        return 1 + helper(head.next)
 
-    return 1 + solution(curr.next)
+#     if head is None:
+#        return None
+    
+#     if helper(head) == k:
+#         head.value = head.value + k 
+#         head = head.next
+#     return  solution(head.next , k + 1)
         
 
-node1 = ListNode(2, ListNode(4, ListNode(1, ListNode(3, ListNode(8, ListNode(5))))))
-print(solution(node1))
+# node1 = ListNode(2, ListNode(4, ListNode(1, ListNode(3, ListNode(8, ListNode(5))))))
+# # 2 -> 4 -> 1 -> 3 -> 8 -> 5
+# print(solution(node1))
 
 
 
@@ -56,14 +66,27 @@ We will not be testing with negative values or exponents and k will be greater t
 
 [output] integer
 """
+# n = 9 k = 3
+# n = 3 k = 3
+# n = 1 k = 3
 
-def solution(n, k):
-   
+# n = 10 k = 3
+# n = 3.333333 k = 3
+# n = 1.111111 k = 3
+
+
+def solution(n, k, counter = 0):
+    
+    
     if n == 1:
         return 0
+    if n < 1:
+        counter = -1
 
-    return  1 + solution(n / k , k) if n % k == 0 else -2
+    solution(n / k , k , counter + 1)
 
+    return counter
+    
 print(solution(9,3))
 print(solution(27,3))
 print(solution(99,9))
@@ -87,18 +110,18 @@ You may not assume the list is sorted. The list will not be empty.
 
 """
 
-# Singly-linked lists are already defined with this interface:
-class ListNode(object):
-  def __init__(self, x):
-    self.value = x
-    self.next = None
+# # Singly-linked lists are already defined with this interface:
+# class ListNode(object):
+#   def __init__(self, x):
+#     self.value = x
+#     self.next = None
 
-def solution(head):
+# def solution(head):
 
-    answer = [float('inf'),float('-inf')]
+#     answer = [float('inf'),float('-inf')]
 
-    if head is None:
-       return answer
+#     if head is None:
+#        return answer
 
-    if head.value > answer[0]  :
-       return 
+#     if head.value > answer[0]  :
+#        return 

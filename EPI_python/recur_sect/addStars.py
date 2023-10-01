@@ -38,7 +38,7 @@ Run tests. Methodically debug & analyze issues.
 
 '''
 def addStars(word: str) -> str:
-    answer = ""
+    
     if len(word) <= 1:
         return word
 

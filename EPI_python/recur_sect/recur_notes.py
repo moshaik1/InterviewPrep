@@ -15,4 +15,13 @@ behaves like a recursive call stack:
 - once last frame is reached, the top frame gets popped (base case)
 - continues until 1st frame is reached, resulting in empty stack
 - call stack: Last In First Out behavior
+
+
+- THINK OF BASE CASES FIRST, WHAT IS NEEDED TO MAKE THE STACK FRAME POP
+- THINK OF IT LIKE A PANCAKE. GOES FROM BOTTOM TO TOP, BACK TO BOTTOM
+
+
+
 """
+
+

@@ -38,7 +38,7 @@ Run tests. Methodically debug & analyze issues.
 '''
 def changePi(word: str) -> str:
 
-    if len(word) <= 0:
+    if len(word) <= 1:
         return word
     
     if word[0:2] == "pi":
