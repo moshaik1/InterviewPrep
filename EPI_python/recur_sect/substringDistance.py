@@ -46,53 +46,40 @@ Run tests. Methodically debug & analyze issues.
 
 '''
 
-def strDist(word: str,  sub: str, flag = False) -> int:
-    #flag = False
-    subLength = len(sub)
-    counter = 0
-
-    if len(word) < subLength:
-        print("reached end")
+def strDist(word: str,  sub: str) -> int:
+    
+    
+    
+    # base case
+    if len(word) < len(sub):
         return 0
     
+    # base case if wird starts and ends with sub
+    if word[0:len(sub)] == sub and word[len(word)-len(sub):] == sub:
+        return len(word)
 
-    if word[0:subLength] == sub and flag is False: 
-        #flag = True
-        counter += 1
-        print("counter = " + counter)
-        return 1 + strDist(word[1:], sub, True)
 
-    if word[0:subLength] == sub and flag is True:
-        #flag = False
-        counter += subLength
-        print("counter + sub = " + counter)
-        return subLength + strDist(word[subLength:], sub, False)
+    # removing from front
+    if word[0:len(sub)] != sub: 
+        return strDist(word[1:], sub)
     
-    
-    return strDist(word[1:],sub, False )
+    # removing from back
+    return strDist(word[0:len(word)-1],sub)
 
 
-print(strDist("catcowcat", "cat")) # == 9)
-# print(strDist("catcowcat", "cow")) # == 3)
-# print(strDist("cccatcowcatxx", "cat")) # == 9)
-# print(strDist("abccatcowcatcatxyz", "cat") == 12)
-# print(strDist("ooowhwhwooo", "whw") == 5)
-# print(strDist("xyx", "x") == 3)
-# print(strDist("xyx", "y") == 1)
-# print(strDist("xyx", "z") == 0)
-# print(strDist("z", "z") == 1)
-# print(strDist("x", "z") == 0)
-# print(strDist("", "z") == 0)
-# print(strDist("hiHellohihihi", "hi") == 13)
-# print(strDist("hiHellohihihi", "hih") == 5)
-# print(strDist("hiHellohihihi", "o") == 1)
-# print(strDist("hiHellohihihi", "ll") == 2)
+print(strDist("catcowcat", "cat") == 9 )
+print(strDist("catcowcat", "cow")  == 3 )
+print(strDist("cccatcowcatxx", "cat")  == 9 )
+print(strDist("abccatcowcatcatxyz", "cat") == 12)
+print(strDist("ooowhwhwooo", "whw") == 5)
+print(strDist("xyx", "x") == 3)
+print(strDist("xyx", "y") == 1)
+print(strDist("xyx", "z") == 0)
+print(strDist("z", "z") == 1)
+print(strDist("x", "z") == 0)
+print(strDist("", "z") == 0)
+print(strDist("hiHellohihihi", "hi") == 13)
+print(strDist("hiHellohihihi", "hih") == 5)
+print(strDist("hiHellohihihi", "o") == 1)
+print(strDist("hiHellohihihi", "ll") == 2)
 
-
-"""
-
-catcowcatcowcat -> answer is 15
-
-
-
-"""
