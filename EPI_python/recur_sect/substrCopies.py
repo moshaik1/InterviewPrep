@@ -38,16 +38,16 @@ Run tests. Methodically debug & analyze issues.
 '''
 
 def strCopies(word: str, sub: str, n: int) -> bool: 
-    if len(word) <= 1:
+    subLeng = len(sub)
+    if len(word) < len(sub):
         return False
     
-    subLeng = len(sub)
-
     if word[0:subLeng] == sub:
         return strCopies(word[1:] , sub, n-1)
 
     if n <= 0:
         return True
+
 
     return strCopies(word[1:] , sub, n)
 
